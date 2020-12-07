@@ -4,16 +4,18 @@ const Grocery = ({id, name, complete, completeToggle, deleteGrocery, editGrocery
   }
   const editClick = () => {
     let newName = prompt("Please enter a new grocery name")
-    editGrocery(name, newName)
+    editGrocery(id, newName)
   }
   return (
-  <li style = {complete ? 
+  <li className = "item" style = {complete ? 
               {...styles.grocery, ...styles.complete} : 
               styles.grocery}> 
     {name}
-    <span onClick= {toggleClick}> Toggle</span> 
-    <span onClick= {() => deleteGrocery(id)}> Delete</span> 
-    <span onClick= {editClick}> edit</span> 
+    <div className="buttons">
+      <button id = {complete ? "uncomplete": "complete"}onClick= {toggleClick}>{complete ? "Un-complete" : "Complete"}</button>
+  <button id="delete" onClick= {() => deleteGrocery(id)}>Delete</button>
+      <button id="edit" onClick= {editClick}>Edit</button> 
+    </div>
   </li>
   )
 }

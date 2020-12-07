@@ -42,10 +42,10 @@ class Groceries extends React.Component {
 
   }
 
-  editGrocery = (name, newName) => {
+  editGrocery = (id, newName) => {
     console.log("editing")
     let editedGroceries = this.state.groceries.map((g) => {
-      if (g.name !== name) {
+      if (g.id !== id) {
         return g
       }
       return {...g, name : newName}
@@ -58,10 +58,12 @@ class Groceries extends React.Component {
     <div>
       <h1>Groceries</h1>
       <AddGroceryFunc addGroceryCallback = {this.addGroceries}/>
-      <List completeToggle = {this.toggle} 
-            deleteGrocery = {this.deleteGroceries} 
-            editGrocery = {this.editGrocery}
-            items = {this.state.groceries} />
+      <div className="list">
+        <List completeToggle = {this.toggle} 
+              deleteGrocery = {this.deleteGroceries} 
+              editGrocery = {this.editGrocery}
+              items = {this.state.groceries} />
+      </div>
     </div>
   )
   }

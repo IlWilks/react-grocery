@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  margin-left: 10px;
+  width: 250px;
+}
+
+.buttons #delete {
+  background-color: rgb(25, 0, 255);
+}
+
+.buttons #edit {
+  background-color: rgb(214, 243, 51);
+}
+.buttons #complete {
+  background-color: green;
+}
+.buttons #uncomplete {
+  background-color: red;
+}
