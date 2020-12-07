@@ -24,6 +24,12 @@ class Groceries extends React.Component {
     });
   };
 
+  deleteGroceries = (id) => {
+    let filteredGroceries =this.state.groceries.filter((g) => g.id !== id);
+
+    this.setState({groceries: filteredGroceries})
+  }
+
 
   toggle = (id) => {
     let updateGroceries = this.state.groceries.map((g) => {
@@ -41,7 +47,9 @@ class Groceries extends React.Component {
     <div>
       <h1>Groceries</h1>
       <AddGroceryFunc addGroceryCallback = {this.addGroceries}/>
-      <List completeToggle = {this.toggle} items = {this.state.groceries} />
+      <List completeToggle = {this.toggle} 
+            deleteGrocery = {this.deleteGroceries} 
+            items = {this.state.groceries} />
     </div>
   )
   }

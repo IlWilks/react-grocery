@@ -1,10 +1,15 @@
-const Grocery = ({id, name, complete, completeToggle}) => {
-  const handleClick = () => {
+const Grocery = ({id, name, complete, completeToggle, deleteGrocery}) => {
+  const toggleClick = () => {
     completeToggle(id);
   }
   return (
-  <li onClick = {handleClick}
-      style = {complete ? {...styles.grocery, ...styles.complete} : styles.grocery}> {name} </li>
+  <li style = {complete ? 
+              {...styles.grocery, ...styles.complete} : 
+              styles.grocery}> 
+    {name}
+    <span onClick= {toggleClick}> Toggle</span> 
+    <span onClick= {() => deleteGrocery(id)}> Delete</span> 
+  </li>
   )
 }
 
