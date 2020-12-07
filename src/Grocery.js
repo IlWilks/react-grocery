@@ -1,5 +1,4 @@
 const Grocery = ({id, name, complete, completeToggle}) => {
-  console.log(complete)
   const handleClick = () => {
     completeToggle(id);
   }

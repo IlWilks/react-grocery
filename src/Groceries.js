@@ -1,4 +1,5 @@
 import React from "react";
+import AddGroceryFunc from "./AddGroceryFunc";
 import List from "./List";
 
 class Groceries extends React.Component {
@@ -10,6 +11,19 @@ class Groceries extends React.Component {
       {id:3, name: "Eggs", complete: false},
     ]
   };
+
+  addGroceries = (groceryName) => {
+    const grocery = {
+      id: Math.random(),
+      name: groceryName,
+      complete: false,
+    };
+
+    this.setState({
+      groceries: [...this.state.groceries, grocery],
+    });
+  };
+
 
   toggle = (id) => {
     let updateGroceries = this.state.groceries.map((g) => {
@@ -26,6 +40,7 @@ class Groceries extends React.Component {
     return (
     <div>
       <h1>Groceries</h1>
+      <AddGroceryFunc addGroceryCallback = {this.addGroceries}/>
       <List completeToggle = {this.toggle} items = {this.state.groceries} />
     </div>
   )
