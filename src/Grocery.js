@@ -1,6 +1,10 @@
-const Grocery = ({id, name, complete, completeToggle, deleteGrocery}) => {
+const Grocery = ({id, name, complete, completeToggle, deleteGrocery, editGrocery}) => {
   const toggleClick = () => {
     completeToggle(id);
+  }
+  const editClick = () => {
+    let newName = prompt("Please enter a new grocery name")
+    editGrocery(name, newName)
   }
   return (
   <li style = {complete ? 
@@ -9,6 +13,7 @@ const Grocery = ({id, name, complete, completeToggle, deleteGrocery}) => {
     {name}
     <span onClick= {toggleClick}> Toggle</span> 
     <span onClick= {() => deleteGrocery(id)}> Delete</span> 
+    <span onClick= {editClick}> edit</span> 
   </li>
   )
 }

@@ -42,6 +42,17 @@ class Groceries extends React.Component {
 
   }
 
+  editGrocery = (name, newName) => {
+    console.log("editing")
+    let editedGroceries = this.state.groceries.map((g) => {
+      if (g.name !== name) {
+        return g
+      }
+      return {...g, name : newName}
+    })
+    this.setState({groceries: editedGroceries})
+  }
+
   render () {
     return (
     <div>
@@ -49,6 +60,7 @@ class Groceries extends React.Component {
       <AddGroceryFunc addGroceryCallback = {this.addGroceries}/>
       <List completeToggle = {this.toggle} 
             deleteGrocery = {this.deleteGroceries} 
+            editGrocery = {this.editGrocery}
             items = {this.state.groceries} />
     </div>
   )

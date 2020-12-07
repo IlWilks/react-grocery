@@ -8,7 +8,8 @@ const List = (props) => {
                       name = {item.name}
                       complete = {item.complete} 
                       completeToggle = {props.completeToggle}
-                      deleteGrocery = {props.deleteGrocery}/>
+                      deleteGrocery = {props.deleteGrocery}
+                      editGrocery = {props.editGrocery}/>
     })
 }
 return <ul>{renderGroceries()}</ul>
