@@ -11,11 +11,22 @@ class Groceries extends React.Component {
     ]
   };
 
+  toggle = (id) => {
+    let updateGroceries = this.state.groceries.map((g) => {
+      if (g.id !== id){
+        return g
+      }
+      return {...g, complete:!g.complete}
+    })
+    this.setState({groceries: updateGroceries})
+
+  }
+
   render () {
     return (
     <div>
       <h1>Groceries</h1>
-      <List items = {this.state.groceries} />
+      <List completeToggle = {this.toggle} items = {this.state.groceries} />
     </div>
   )
   }

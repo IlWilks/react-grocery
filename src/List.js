@@ -2,10 +2,12 @@ import Grocery from "./Grocery"
 
 const List = (props) => {
   const renderGroceries = () => {
-    console.log(props)
     return props.items.map((item) => {
       return <Grocery key={item.id}
-                      name = {item.name} />
+                      id = {item.id}
+                      name = {item.name}
+                      complete = {item.complete} 
+                      completeToggle = {props.completeToggle}/>
     })
 }
 return <ul>{renderGroceries()}</ul>
